@@ -1,0 +1,87 @@
+<header class="hero" id="home">
+  <div class="hero-grid container">
+    <div class="hero-copy">
+      <p class="eyebrow">A developer team · Victorias City, Philippines</p>
+      <h1>We build<br /><em>better websites.</em></h1>
+      <p class="intro">We create responsive, user-friendly websites with thoughtful design and dependable code.</p>
+      <div class="actions">
+        <a class="button button-dark" href="#projects">View our work <span>→</span></a>
+        <a class="text-link" href="#about">Meet the team <span>↗</span></a>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-label="Decorative code editor illustration">
+      <div class="code-window">
+        <div class="window-bar"><span></span><span></span><span></span><p>the-developers / portfolio.astro</p></div>
+        <pre><code><span>const</span> team = &#123;
+  members: [<b>"Gian Baldelovar"</b>, <b>"Marianne Guban"</b>, <b>"Miles Pabon"</b>],
+  focus: <b>"Responsive web experiences"</b>,
+  tools: [<b>"Astro"</b>, <b>"JavaScript"</b>],
+  mindset: <b>"Always learning"</b>
+&#125;;
+
+<i>build</i>(team);</code></pre>
+        <div class="code-status"><span>●</span> Ready to build something useful</div>
+      </div>
+      <p class="art-note">Curious<br />by Nature</p>
+    </div>
+  </div>
+</header>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 760px;
+    overflow: hidden;
+    background:
+      linear-gradient(rgba(33, 27, 23, .035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(33, 27, 23, .035) 1px, transparent 1px),
+      var(--cream);
+    background-size: 48px 48px;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    background: url("/developer-devices.svg") no-repeat 98% 56% / min(78vw, 920px) auto;
+    opacity: .25;
+    filter: blur(5px);
+    pointer-events: none;
+  }
+  .hero-grid { position: relative; z-index: 1; min-height: 760px; display: grid; grid-template-columns: 56% 44%; align-items: center; padding-top: 132px; }
+  .hero-copy { position: relative; z-index: 2; padding: 48px 0 70px; }
+  .hero-copy h1 { margin: 0 0 28px; font-family: "Manrope", sans-serif; font-size: clamp(66px, 7.3vw, 100px); line-height: .94; letter-spacing: -.07em; }
+  .hero-copy h1 em { color: var(--accent-brown); font-family: Georgia, serif; font-weight: 400; }
+  .intro { max-width: 470px; margin: 0 0 38px; color: var(--muted); font-size: 18px; line-height: 1.7; }
+  .actions { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .button { display: inline-flex; align-items: center; justify-content: space-between; gap: 44px; height: 58px; padding: 0 22px; border-radius: 4px; font-size: 14px; font-weight: 800; }
+  .button-dark { background: var(--accent-brown); color: var(--white); transition: background .2s ease, color .2s ease; }
+  .button-dark:hover { background: var(--black); color: var(--white); }
+  .button-dark:focus-visible, .text-link:focus-visible { outline-color: var(--accent-brown); outline-offset: 5px; }
+  .button span { font-size: 20px; }
+  .text-link { font-size: 14px; font-weight: 800; border-bottom: 2px solid var(--accent-brown); padding-bottom: 5px; }
+  .text-link span { margin-left: 12px; }
+  .hero-art { position: relative; display: flex; align-items: center; justify-content: center; min-height: 520px; align-self: end; }
+  .code-window { width: min(100%, 520px); overflow: hidden; border: 1px solid #fff; background: #080808; color: #fff; box-shadow: 16px 16px 0 var(--accent-brown); }
+  .window-bar { height: 48px; display: flex; align-items: center; gap: 7px; padding: 0 16px; border-bottom: 1px solid #3c3c3c; }
+  .window-bar > span { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-brown); }
+  .window-bar p { margin: 0 0 0 8px; color: #c8c8c8; font-size: 11px; }
+  .code-window pre { overflow-x: auto; margin: 0; padding: 28px 24px; font-family: Consolas, monospace; font-size: clamp(12px, 1.2vw, 15px); line-height: 1.9; }
+  .code-window code span, .code-window code i { color: #c18b68; font-style: normal; }
+  .code-window code b { color: #fff; font-weight: 400; }
+  .code-status { padding: 12px 18px; border-top: 1px solid #3c3c3c; color: #d7d7d7; font-size: 11px; }
+  .code-status span { margin-right: 7px; color: #c18b68; }
+  .art-note { position: absolute; z-index: 6; right: -4px; top: 62px; display: grid; place-items: center; width: 86px; height: 86px; margin: 0; border-radius: 50%; background: var(--accent-brown); color: var(--white); border: 2px solid #000; text-align: center; font-family: Georgia, serif; font-size: 13px; font-style: italic; transform: rotate(8deg); }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 60% 40%; padding-top: 150px; }
+    .hero-copy h1 { font-size: clamp(64px, 9vw, 88px); } .hero-art { transform: scale(.9); transform-origin: bottom right; }
+  }
+  @media (max-width: 650px) {
+    .hero { min-height: 760px; }
+    .hero-grid { display: block; position: relative; min-height: 760px; padding-top: 128px; } .hero-copy { padding-top: 34px; }
+    .hero-copy h1 { font-size: clamp(58px, 18vw, 78px); } .intro { max-width: 330px; font-size: 16px; }
+    .actions { align-items: flex-start; flex-direction: column; gap: 20px; }
+    .hero-art { position: absolute; width: min(430px, 110vw); min-height: 0; height: 320px; right: -68px; bottom: 0; opacity: .96; transform: scale(.8); transform-origin: bottom right; }
+  }
+</style>

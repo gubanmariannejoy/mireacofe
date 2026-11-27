@@ -1,0 +1,21 @@
+<footer class="footer">
+  <div class="container footer-bar">
+    <a class="footer-brand" href="#home">Trifusion developer</a>
+    <p>© {new Date().getFullYear()} Trifusion developer</p>
+    <a class="footer-note" href="#contact">Built with Astro <span>↗</span></a>
+  </div>
+</footer>
+
+<style>
+  .footer { background: var(--paper); color: var(--ink); }
+  .footer-bar { min-height: 86px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; border-top: 1px solid var(--line); }
+  .footer-brand { font-family: "Manrope", sans-serif; font-size: 18px; font-weight: 800; }
+  .footer-bar p { margin: 0; font-size: 12px; }
+  .footer-note { justify-self: end; font-size: 12px; font-weight: 700; }
+  .footer-note span { color: var(--accent-brown); margin-left: 6px; }
+  @media (max-width: 760px) {
+    .footer-bar { grid-template-columns: 1fr auto; }
+    .footer-bar p { display: none; }
+    .footer-note { justify-self: end; }
+  }
+</style>

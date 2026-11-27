@@ -1,0 +1,111 @@
+---
+import Card from "../../../components/Card.astro";
+
+const programmers = [
+  {
+    number: "01",
+    title: "Gian Baldelovar",
+    image: "/gian-profile.jpg",
+    description: "Interested in building responsive web experiences.",
+    items: ["Astro", "Frontend development", "CSS animation"],
+  },
+  {
+    number: "02",
+    title: "Marianne Guban",
+    image: "/marianne-guban.jpg",
+    description: "Enjoys creating clear, welcoming interfaces.",
+    items: ["HTML & CSS", "UI design", "Responsive layouts"],
+  },
+  {
+    number: "03",
+    title: "Miles Martin Pabon",
+    image: "/miles-martin-pabon.jpg",
+    description: "Likes turning ideas into practical website features.",
+    items: ["JavaScript", "Astro", "Problem solving"],
+  },
+];
+---
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-label">
+      <p class="eyebrow">01 — About</p>
+    </div>
+    <div class="about-content">
+      <h2 class="section-title">A team that values clarity.</h2>
+      <div class="about-bottom">
+        <div class="story-copy">
+          <p class="story-lead">We’re a team of developers: Gian Baldelovar, Marianne Guban, and Miles Martin Pabon. We build practical, user-friendly websites.</p>
+          <p>We enjoy turning ideas into clean interfaces, learning how the pieces of the web fit together, and improving a project one detail at a time.</p>
+          <p>Our approach balances curiosity with care: understand the problem, keep the experience simple, and write code that is clear to work with.</p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="container strengths">
+    <div class="strengths-heading">
+      <p class="eyebrow">Our team strengths</p>
+      <p>Different skills, brought together to build one complete experience.</p>
+    </div>
+    <div class="strengths-grid">
+      {programmers.map((programmer) => <Card variant="strength" {...programmer} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0;
+    border-top: 1px solid var(--line);
+    background: radial-gradient(ellipse at 85% 12%, rgba(117, 68, 38, .055), transparent 38%), var(--paper);
+  }
+  .about::before { content: ""; position: absolute; z-index: 0; inset: 0; background: url("/developer-devices.svg") no-repeat 4% 70% / min(72vw, 850px) auto; opacity: .24; filter: blur(5px); pointer-events: none; }
+  .about > .container { position: relative; z-index: 1; }
+  .about-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+  .about-label { padding: 0; }
+  .about-label .eyebrow { margin-bottom: 0; }
+  .about-content { padding: 0; }
+  .about-bottom { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: end; margin-top: 32px; }
+  .story-copy { max-width: 680px; }
+  .story-copy p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+  .story-copy p + p { margin-top: 14px; }
+  .story-copy .story-lead { margin-bottom: 20px; color: var(--ink); font-family: "Manrope", sans-serif; font-size: 20px; font-weight: 700; line-height: 1.5; }
+  .about-stat { display: grid; gap: 8px; padding-left: 18px; border-left: 1px solid var(--line); }
+  .about-stat strong { font-family: "Manrope", sans-serif; font-size: 36px; line-height: 1; letter-spacing: -.05em; }
+  .about-stat span { color: var(--muted); font-size: 10px; line-height: 1.6; text-transform: uppercase; }
+  .strengths { margin-top: 88px; }
+  .strengths-heading { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-bottom: 24px; }
+  .strengths-heading .eyebrow { margin: 0; }
+  .strengths-heading > p:last-child { max-width: 380px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+  .strengths-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .strengths-grid :global(.card--strength),
+  .strengths-grid :global(.card--strength + .card--strength) {
+    min-height: 0;
+    padding: 14px;
+    border: 1px solid var(--line);
+    background: var(--white);
+  }
+  .strengths-grid :global(.card-number) { display: none; }
+  .strengths-grid :global(.profile-image) { height: 260px; margin: 0; border: 0; background: var(--cream); }
+  .strengths-grid :global(.card--strength h3) { margin: 18px 0 8px; font-size: 19px; }
+  .strengths-grid :global(.card--strength p) { max-width: none; font-size: 13px; }
+  .strengths-grid :global(.strength-tags) { gap: 6px; margin-top: 14px; }
+  .strengths-grid :global(.strength-tags li) { padding: 0; border: 0; color: var(--muted); font-size: 11px; }
+  .strengths-grid :global(.strength-tags li + li)::before { content: "·"; padding: 0 6px 0 0; color: var(--accent-brown); }
+  @media (max-width: 900px) {
+    .strengths-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 760px) {
+    .about { padding: 84px 0; }
+    .about-bottom { grid-template-columns: 1fr; gap: 28px; margin-top: 24px; }
+    .about-stat { justify-self: start; }
+    .strengths { margin-top: 64px; }
+    .strengths-heading { display: block; }
+    .strengths-heading > p:last-child { margin-top: 12px; }
+    .strengths-grid { grid-template-columns: 1fr; }
+    .strengths-grid :global(.profile-image) { height: 280px; }
+  }
+</style>

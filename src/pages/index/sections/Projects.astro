@@ -1,0 +1,66 @@
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="projects-heading">
+      <div>
+        <p class="eyebrow">03 — Selected projects</p>
+        <h2 class="section-title">A few things<br />we’ve built.</h2>
+      </div>
+      <p class="projects-intro">Featured projects by Marianne Guban and Gian Baldelovar</p>
+    </div>
+    <div class="projects-grid">
+      <a class="project-card" href="file:///C:/guban-midtermExam/index.html" aria-label="Open Marianne Guban’s photography project">
+        <img src="/marianne-project.png" alt="Preview of the Negros Larawan Photography website" />
+        <h3>MARIANNE GUBAN</h3>
+      </a>
+      <a class="project-card" href="file:///C:/marianne-tailwind/index.html" aria-label="Open Marianne Guban’s Mirae Study Cafe project">
+        <img src="/marianne-cafe-project.png" alt="Preview of the Mirae Study Cafe website" />
+        <h3>MARIANNE GUBAN</h3>
+      </a>
+      <a class="project-card" href="file:///C:/Users/guban/gianbuang/gian-tailwind/index.html" aria-label="Open Gian Baldelovar’s featured projects portfolio">
+        <img src="/gian-project.png" alt="Preview of Gian Baldelovar’s featured projects portfolio" />
+        <h3>GIAN BALDELOVAR</h3>
+      </a>
+      <a class="project-card" href="file:///C:/Users/guban/gianbuang/midterm-webdev-baldelovar/index.html" aria-label="Open Gian Baldelovar’s Royen’s Grill project">
+        <img src="/gian-royens-grill.png" alt="Preview of Royen’s Grill website featuring roasted lechon" />
+        <h3>GIAN BALDELOVAR</h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    position: relative;
+    padding: 140px 0;
+    overflow: hidden;
+    background:
+      linear-gradient(90deg, transparent 0 68%, rgba(117,68,38,.045) 68% 68.2%, transparent 68.2%),
+      linear-gradient(rgba(117,68,38,.045) 1px, transparent 1px),
+      var(--paper);
+    background-size: 100% 100%, 100% 34px, auto;
+  }
+  .projects::before { content: ""; position: absolute; z-index: 0; inset: 0; background: url("/developer-devices.svg") no-repeat 3% 60% / min(72vw, 860px) auto; opacity: .22; filter: blur(5px); pointer-events: none; }
+  .projects > .container { position: relative; z-index: 1; }
+  .projects-heading { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 48px; margin-bottom: 60px; }
+  .projects-intro { max-width: 390px; margin: 0 0 8px; color: var(--muted); font-size: 16px; line-height: 1.7; }
+  .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+  .project-card {
+    display: block;
+    overflow: hidden;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--paper);
+    box-shadow: 0 16px 38px rgba(33, 27, 23, .1);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+  }
+  .project-card:hover { transform: translateY(-4px); box-shadow: 0 22px 46px rgba(33, 27, 23, .16); }
+  .project-card:focus-visible { outline: 2px solid var(--accent-brown); outline-offset: 5px; }
+  .project-card img { display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: contain; border-radius: 7px; background: var(--cream); }
+  .project-card h3 { margin: 18px 8px 8px; font-family: "Manrope", sans-serif; font-size: 19px; letter-spacing: .04em; }
+  @media (max-width: 760px) {
+    .projects { padding: 90px 0; }
+    .projects-heading { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+</style>

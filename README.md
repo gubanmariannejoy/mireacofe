@@ -38,6 +38,16 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## Contact form on Vercel
+
+The contact form uses the Vercel function in `api/contact.js` and Resend to deliver messages.
+
+1. Create a Resend API key and verify the domain used for `CONTACT_FROM_EMAIL`.
+2. Add `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, and `CONTACT_TO_EMAIL` to the Vercel project's environment variables.
+3. For local testing, copy `.env.example` to `.env.local`, fill in those values, and run `npx vercel dev`. The regular `npm run dev` Astro server does not run Vercel functions.
+
+Do not commit `.env.local` or expose the Resend API key in browser code.
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
